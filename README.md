@@ -1,6 +1,6 @@
 # Aion AVM API Docs
 
-This repository is a website for reviewing AVM API documentation. It is deployed at [avm-api.aion.network](https://avm-api.aion.network/).
+This repository is a website for reviewing AVM API documentation. It is deployed at [avm-api.aion.network](https://avm-api.aion.network/). The contents of this repository is created by building the AVM repository and copying the contents of the `javadoc` folder. No manual changes are made to this repository, other than this `README.md` file.
 
 ## Building
 
