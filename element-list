@@ -1,3 +1,4 @@
 avm
+org.aion.avm.embed
 org.aion.avm.userlib
 org.aion.avm.userlib.abi

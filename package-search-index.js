@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"avm"},{"l":"org.aion.avm.userlib"},{"l":"org.aion.avm.userlib.abi"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"avm"},{"l":"org.aion.avm.embed"},{"l":"org.aion.avm.userlib"},{"l":"org.aion.avm.userlib.abi"}]
