@@ -4,14 +4,74 @@ This repository is a website for reviewing AVM API documentation. It is deployed
 
 ## Building
 
-This repository is created when a new Aion Java Kernel build is released. To create this repository from scratch:
+Currently the steps to build this project are not automatic, and must be done manually.
 
-1. Clone the latest Aion AVM repository: `git clone https://github.com/aionnetwork/AVM.git`
-2. Move into the aion directory: `cd AVM`
-3. Build the kernel: `ant`
-4. The API website now in `AVM/dist/javadoc`.
+### Prerequisites
 
-The contents of that folder are then copied into this repository, where it is published by [Netlify](https://www.netlify.com/).
+1. [Apache Ant](http://ant.apache.org/)
+2. [Git](https://git-scm.com/)
+
+### One Liner
+
+Run this one-line to perform all the individual steps in one go:
+
+```bash
+git clone https://github.com/aionnetwork/AVM.git ~/avm &&
+git clone https://github.com/aionnetwork/avm-api-docs.git ~/avm-api-docs &&
+cd avm &&
+ant &&
+yes | cp -rf ~/avm/dist/javadoc/ ~/avm-api-docs/ &&
+rm -rf ~/avm-api-docs/jquery &&
+cd ~/avm-api-docs && git add . &&
+git commit -m "New AVM build." &&
+git push
+```
+
+If something is going wrong, perform the individual steps one by one to figure out what's happening.
+
+### Individual Steps
+
+1. Clone or pull the latest changes to `aionnetwork/avm` from the `master` branch:
+
+    ```bash
+    git clone https://github.com/aionnetwork/AVM.git ~/avm
+    ```
+
+1. Clone or pull the latest changes to `aionnetwork/avm-api-docs` from the `master` branch:
+
+    ```bash
+    git clone https://github.com/aionnetwork/avm-api-docs.git ~/avm-api-docs
+    ```
+
+2. Move into the AVM repository and build the AVM project
+
+    ```bash
+    cd avm
+    ant
+    ```
+
+3. Copy the entire `dist/javadoc` directory to the `aionnetwork/avm-api-docs` repository:
+
+    ```bash
+    yes | cp -rf ~/avm/dist/javadoc/ ~/avm-api-docs/
+    ```
+
+4. Disable jQuery removing the folder:
+
+    ```bash
+    rm -rf ~/avm-api-docs/jquery
+    ```
+
+5. Commit, stage, and push changes within the `aionnetwork/avm-api-docs` repository:
+
+    ```bash
+    cd ~/avm-api-docs
+    git add .
+    git commit -m "New AVM build."
+    git push
+    ```
+
+The HTML is still requesting jQuery, but since the folder has been deleted there's nothing for it to access. The contents of that folder are then copied into this repository, where it is published by [Netlify](https://www.netlify.com/).
 
 ## Contributing
 
